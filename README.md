@@ -60,7 +60,7 @@ sudo apt install build-essential cmake pkg-config libgtk-4-dev
 # Fedora / RHEL
 sudo dnf install gcc-c++ cmake pkgconf-pkg-config gtk4-devel
 
-git clone <your-repo-url> sysograph && cd sysograph
+git clone https://github.com/puxxalwl/Sysograph sysograph && cd sysograph
 cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
 cmake --build build
 ./build/sysograph
