@@ -21,7 +21,7 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y \
             build-essential cmake pkg-config libgtk-4-dev \
-            xvfb xdotool imagemagick
+            xvfb xdotool x11-utils imagemagick
 
       - name: Build
         run: |
@@ -46,10 +46,11 @@ jobs:
             sleep 1
           done
           test -n "$WINDOW"
-          # Xvfb has no window manager, so _NET_ACTIVE_WINDOW is unavailable.
-          # Import the window directly instead of trying to activate it.
+          # Xvfb has no window manager and ImageMagick's XImportImage can
+          # race with GTK window mapping. Capture the stable root window.
           sleep 3
-          import -window "$WINDOW" -crop 1280x720+0+0 screenshot.png
+          xwd -root -silent -out /tmp/screen.xwd
+          convert /tmp/screen.xwd -crop 1280x720+0+0 screenshot.png
           test -s screenshot.png
 
       - name: Upload screenshot artifact
