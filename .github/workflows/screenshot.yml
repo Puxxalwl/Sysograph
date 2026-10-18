@@ -46,7 +46,8 @@ jobs:
             sleep 1
           done
           test -n "$WINDOW"
-          xdotool windowactivate "$WINDOW"
+          # Xvfb has no window manager, so _NET_ACTIVE_WINDOW is unavailable.
+          # Import the window directly instead of trying to activate it.
           sleep 3
           import -window "$WINDOW" -crop 1280x720+0+0 screenshot.png
           test -s screenshot.png
