@@ -42,14 +42,19 @@ jobs:
   rpm:
     name: Fedora/RHEL (.rpm)
     runs-on: ubuntu-latest
-    container: fedora:latest
+    container: fedora:40
     steps:
       - uses: actions/checkout@v4
       - name: Install dependencies
+        shell: bash
         run: |
-          dnf install -y git gcc-c++ cmake pkgconf-pkg-config gtk4-devel rpm-build
-          command -v rpmbuild
+          dnf -y update
+          dnf install -y git gcc-c++ cmake pkgconf-pkg-config gtk4-devel rpm-build rpmdevtools
+          RPMBUILD="$(command -v rpmbuild)"
+          test -x "$RPMBUILD"
+          "$RPMBUILD" --version
       - name: Build, test and package
+        shell: bash
         run: |
           cmake -S . -B build -DCMAKE_BUILD_TYPE=${BUILD_TYPE}
           cmake --build build -j"$(nproc)"
