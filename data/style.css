@@ -1,0 +1,36 @@
+/*
+ * Sysograph — a free, original Linux system task manager.
+ * Copyright (C) 2025 The Sysograph Project Contributors
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ *
+ * Original stylesheet: calm, neutral, works with light and dark themes.
+ * Colors rely on theme CSS tokens where possible; custom values are
+ * the project's own design choice.
+ */
+
+/* Performance cards */
+.card {
+  border-radius: 8px;
+}
+
+.big-value {
+  font-size: 1.35rem;
+  font-weight: 700;
+  font-feature-settings: "tnum";
+}
+
+.dim-label {
+  opacity: 0.75;
+  font-size: 0.92rem;
+  font-feature-settings: "tnum";
+}
+
+/* Table rows are a bit tighter than the default */
+treeview {
+  font-feature-settings: "tnum";
+}
+
+/* Search entry on the toolbar */
+searchentry {
+  border-radius: 6px;
+}

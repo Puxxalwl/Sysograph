@@ -1,0 +1,13 @@
+[Desktop Entry]
+Type=Application
+Name=Sysograph
+GenericName=System Task Manager
+GenericName[ru]=Диспетчер задач системы
+Comment=Monitor processes, performance, users, services and startup apps
+Comment[ru]=Мониторинг процессов, производительности, пользователей, служб и автозапуска
+Exec=sysograph
+Icon=org.sysograph.Sysograph
+Terminal=false
+Categories=System;Monitor;
+Keywords=task;manager;process;monitor;cpu;memory;network;disk;
+StartupNotify=true

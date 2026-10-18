@@ -1,0 +1,19 @@
+# Build directories
+build/
+build-*/
+cmake-build-*/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# CPack output
+*.deb
+*.rpm
+*.tar.gz
+*.AppImage
+AppDir/
+
+# OS
+.DS_Store

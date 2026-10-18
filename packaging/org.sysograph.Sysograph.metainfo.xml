@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Sysograph — a free, original Linux system task manager.
+  Copyright (C) 2025 The Sysograph Project Contributors
+  SPDX-License-Identifier: GPL-3.0-or-later
+-->
+<component type="desktop-application">
+  <id>org.sysograph.Sysograph</id>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>GPL-3.0+</project_license>
+  <name>Sysograph</name>
+  <summary>A free system task manager for Linux</summary>
+  <summary xml:lang="ru">Свободный диспетчер задач для Linux</summary>
+  <description>
+    <p>
+      Sysograph is an original, free system task manager for Linux built
+      with C++ and GTK 4. It gives you a complete picture of what your
+      machine is doing: processes with full details, a process tree,
+      performance graphs for CPU, memory, disk and network, per-user
+      resource aggregation, XDG autostart entries and systemd services.
+    </p>
+    <p>
+      It runs entirely without root privileges, reads its data from the
+      standard procfs and sysfs interfaces, and collects or sends nothing.
+    </p>
+    <p xml:lang="ru">
+      Sysograph — свободный диспетчер задач для Linux на C++ и GTK 4:
+      процессы с подробностями, дерево процессов, графики ЦП, памяти,
+      диска и сети, потребление по пользователям, автозапуск и службы
+      systemd. Работает без прав root, не собирает и не отправляет данные.
+    </p>
+  </description>
+  <launchable type="desktop-id">org.sysograph.Sysograph.desktop</launchable>
+  <categories>
+    <category>System</category>
+    <category>Monitor</category>
+  </categories>
+  <requires>
+    <display_length compare="ge">600</display_length>
+  </requires>
+  <content_rating type="oars-1.1"/>
+  <releases>
+    <release version="0.1.0" date="2025-10-18">
+      <description>
+        <p>Initial release.</p>
+        <p>Process table with search, sorting and details pane, process
+        tree, performance graphs, per-user aggregation, XDG autostart
+        management and systemd service listing; DEB/RPM packaging.</p>
+      </description>
+    </release>
+  </releases>
+</component>

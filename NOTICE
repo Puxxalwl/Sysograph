@@ -1,0 +1,42 @@
+Sysograph
+=========
+
+Copyright (C) 2025 The Sysograph Project Contributors
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.  See the file LICENSE for the
+complete license text.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+Trademarks and non-affiliation
+------------------------------
+"Sysograph" is the name of this project.  This project is not
+affiliated with, endorsed by, or sponsored by any other company or
+product.  All other trademarks referenced anywhere in this source
+tree (if any) belong to their respective owners, and are used only
+in an descriptive, non-trademark way, if at all.
+
+Originality
+-----------
+All source code, artwork, icons, stylesheets and texts in this
+repository were written from scratch for this project.  No code,
+graphics, wording or other protected material from any proprietary
+operating system vendor (including Microsoft Corporation) or from
+any other third-party product was copied, disassembled, extracted
+or otherwise incorporated.  The application is an independent
+implementation of commonly known, publicly documented system
+monitoring techniques (reading the Linux procfs/sysfs interfaces
+and standard desktop-entry conventions).
+
+Third-party components
+----------------------
+Sysograph links to and uses the GTK 4 / GLib libraries, which are
+distributed under the GNU Lesser General Public License, version
+2.1 or later.  See THIRD_PARTY_LICENSES.md and
+THIRD_PARTY/LICENSES/LGPL-2.1.txt for details.

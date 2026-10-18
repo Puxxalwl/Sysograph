@@ -1,0 +1,70 @@
+name: CI
+
+# Sysograph — a free, original Linux system task manager.
+# Copyright (C) 2025 The Sysograph Project Contributors
+# SPDX-License-Identifier: GPL-3.0-or-later
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  license-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: License compliance gate
+        run: scripts/check_licenses.sh
+
+  build-ubuntu:
+    runs-on: ubuntu-latest
+    needs: license-check
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y build-essential cmake pkg-config libgtk-4-dev
+      - name: Configure
+        run: cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
+      - name: Build
+        run: cmake --build build -j"$(nproc)"
+      - name: Test
+        run: ctest --test-dir build --output-on-failure
+      - name: Package (DEB)
+        run: |
+          cd build
+          cpack -G DEB
+          dpkg-deb -c sysograph-*-Linux.deb | head -40
+
+  build-fedora:
+    runs-on: ubuntu-latest
+    needs: license-check
+    container:
+      image: fedora:latest
+    steps:
+      - name: Install dependencies
+        run: |
+          dnf install -y git gcc-c++ cmake gtk4-devel
+      - uses: actions/checkout@v4
+      - name: Configure
+        run: cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
+      - name: Build
+        run: cmake --build build -j"$(nproc)"
+      - name: Test
+        run: ctest --test-dir build --output-on-failure
+      - name: Package (RPM)
+        run: |
+          cd build
+          cpack -G RPM
+          rpm -qlp sysograph-*-Linux.rpm | head -40
+
+  build-matrix-warning:
+    runs-on: ubuntu-latest
+    needs: [build-ubuntu, build-fedora]
+    if: always()
+    steps:
+      - name: All matrix jobs finished
+        run: echo "done"
