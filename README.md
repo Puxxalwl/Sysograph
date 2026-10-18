@@ -5,8 +5,6 @@
 [![License: GPL-3.0-or-later](https://img.shields.io/badge/license-GPL--3.0--or--later-blue)](LICENSE)
 [Русская версия документа](README.ru.md)
 
-![Screenshot](docs/screenshot-processes.png)
-
 Sysograph is a native Linux application — written from scratch in modern
 C++ with GTK 4 — that gives you the full picture of what your machine is
 doing: processes, performance, users, services and autostart entries.
